@@ -4,18 +4,14 @@
 #include <stdlib.h>
 
 bool isdelimiter(char ch) {
-    if (ch == ' ' || ch == '+' || ch == '-' || ch == '*' ||
-        ch == '/' || ch == ',' || ch == ';' || ch == '>' ||
-        ch == '<' || ch == '=' || ch == '(' || ch == ')' ||
+    if (ch == ' ' || ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == ',' || ch == ';' || ch == '>' || ch == '<' || ch == '=' || ch == '(' || ch == ')' ||
         ch == '[' || ch == ']' || ch == '{' || ch == '}')
         return true;
     return false;
 }
 
 bool isoperator(char ch) {
-    if (ch == '+' || ch == '-' || ch == '*' ||
-        ch == '/' || ch == '>' || ch == '<' ||
-        ch == '=')
+    if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '>' || ch == '<' || ch == '=')
         return true;
     return false;
 }
@@ -28,10 +24,8 @@ bool valididentifier(char* str) {
 
 bool iskeyword(char* str) {
     const char* keywords[] = {
-        "if", "else", "while", "do", "break", "continue",
-        "int", "double", "float", "return", "char", "case",
-        "sizeof", "long", "short", "typedef", "switch", "unsigned",
-        "void", "static", "struct", "goto"
+        "if", "else", "while", "do", "break", "continue","int", "double", "float", "return", "char", "case",
+        "sizeof", "long", "short", "typedef", "switch", "unsigned","void", "static", "struct", "goto"
     };
 
     for (int i = 0; i < sizeof(keywords) / sizeof(keywords[0]); i++) {
@@ -110,7 +104,7 @@ void parse(char* str) {
 
         if (isdelimiter(str[right]) && left == right) {
             if (isoperator(str[right]))
-                printf("'%c' IS AN OPERATOR\n", str[right]);
+                printf("'%c' Is an Operator\n", str[right]);
             right++;
             left = right;
         } else if (isdelimiter(str[right]) && left != right ||
@@ -118,15 +112,15 @@ void parse(char* str) {
             char* subStr = substring(str, left, right - 1);
 
             if (iskeyword(subStr))
-                printf("'%s' IS A KEYWORD\n", subStr);
+                printf("'%s' Is a Keyword\n", subStr);
             else if (isinteger(subStr))
-                printf("'%s' IS AN INTEGER\n", subStr);
+                printf("'%s' Is an Integer\n", subStr);
             else if (isrealnumber(subStr))
-                printf("'%s' IS A REAL NUMBER\n", subStr);
+                printf("'%s' Is a Real Number\n", subStr);
             else if (valididentifier(subStr))
-                printf("'%s' IS A VALID IDENTIFIER\n", subStr);
+                printf("'%s' Is a valid Identifier\n", subStr);
             else
-                printf("'%s' IS NOT A VALID IDENTIFIER\n", subStr);
+                printf("'%s' Is not a valid Identifier\n", subStr);
 
             free(subStr);
             left = right;
