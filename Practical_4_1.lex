@@ -1,4 +1,3 @@
-/*
 // Objective 1 
  %{
 #include <stdio.h>
@@ -6,7 +5,7 @@
 
 %%
 
-[0-9]+      { printf("%s\n", yytext); }  // Print each number on a new line
+[0-9]+      { printf("%s\n", yytext); }  
 .|\n        {}
 
 %%
@@ -17,13 +16,13 @@ int main() {
 }
 
 int yywrap() {
-    return 1;  // Indicates the end of input
+    return 1;  
 }
-*/
 
 
 
-/*
+
+
 // Objective 2
  %{
 #include <stdio.h>
@@ -45,10 +44,10 @@ int main() {
 int yywrap() {
     return 1;
 }
-*/
 
 
-/*
+
+
 // Objective 3
  %{
 #include <stdio.h>
@@ -72,7 +71,7 @@ int main() {
 int yywrap() {
     return 1;
 }
-*/
+
 
 /* Objective 3.1 */
 
@@ -85,7 +84,7 @@ int char_count = 0, word_count = 0, line_count = 0;
 int whitespace_count = 0, tab_count = 0, special_char_count = 0;
 int identifier_count = 0, keyword_count = 0, value_count = 0; int literal = 0;
 
-// List of C language keywords
+
 char *keywords[] = {"int", "float", "char", "double", "return", "if", "else", "while", "for", "do", 
                     "switch", "case", "break", "continue", "struct", "union", "typedef", "void", 
                     "static", "extern", "const", "sizeof", "volatile", "enum", "register", "signed", 
@@ -93,7 +92,7 @@ char *keywords[] = {"int", "float", "char", "double", "return", "if", "else", "w
 
 int keyword_count_size = sizeof(keywords) / sizeof(keywords[0]);
 
-// Function to check if a word is a keyword
+
 int is_keyword(char *word) {
     for (int i = 0; i < keyword_count_size; i++) {
         if (strcmp(word, keywords[i]) == 0)
@@ -168,7 +167,7 @@ int main(int argc, char *argv[]) {
 
 
 
-/* 
+ 
 // Objective 4
 %{
 #include <stdio.h>
@@ -203,4 +202,3 @@ int main() {
 int yywrap() {
     return 1;
 }
-*/
