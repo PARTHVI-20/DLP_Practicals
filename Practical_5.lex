@@ -4,7 +4,7 @@
 #include <string.h>
 %}
 
-/* Define tokens */
+
 KEYWORD   int|char|return|if|else|while|for|do|switch|case|break|continue|default|void|float|double
 IDENTIFIER [a-zA-Z_][a-zA-Z0-9_]*
 CONSTANT  [0-9]+(\.[0-9]+)?
